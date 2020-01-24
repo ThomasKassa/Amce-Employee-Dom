@@ -1,4 +1,5 @@
 <html>
+
     <head>
         <link rel='stylesheet' href='stylesheet.css'>
     </head>
@@ -9,7 +10,7 @@
     </body>
         
     <script>
-        const employees = [
+    const employees = [
     { id: 1, name: 'moe'},
     { id: 2, name: 'larry'},
     { id: 4, name: 'shep'},
@@ -18,34 +19,28 @@
     { id: 6, name: 'harpo'},
     { id: 8, name: 'shep Jr.'},
     { id: 99, name: 'lucy'}
-  ];
+    ];
 
-  const list = employees.map((employee)=>{
-      return `<div>${employee.name}</div>`
-  }).join('')
+    const list = employees.map(employee=>`<div>${employee.name}</div>`).join('')
 
-
-  const container = document.querySelector('.container')
-  container.innerHTML = list;
+    const container = document.querySelector('.container')
+    container.innerHTML = list;
  
- const links =  [...document.querySelectorAll('.container > div')];
- let counter = 0;
-links.forEach(x => {
-    x.addEventListener('click', (ev)=>{
-        ev.target.classList.toggle('yellow');
-        (ev.target.className === 'yellow') ? counter += 1 : counter -= 1;
-        if(counter >3) {
-            alert('you can only select 3')
-            ev.target.classList.remove('yellow');
-            counter = 3
-        }
-        console.log(counter)
-    }) 
-   
- 
-})
-
-
+    const links =  [...document.querySelectorAll('.container > div')];
+    let counter = 0;
+        links.forEach(x => {
+            x.addEventListener('click', (ev)=>{
+                ev.target.classList.toggle('yellow');
+                (ev.target.className === 'yellow') ? counter += 1 : counter -= 1;
+                if(counter >3) {
+                    alert('you can only select 3')
+                    ev.target.classList.remove('yellow');
+                    counter = 3
+                }
+                console.log(counter)
+            }) 
+        })
 
     </script> 
+    
 </html>
