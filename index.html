@@ -4,7 +4,48 @@
     </head>
 
     <body>
-        
+        <h1>Acme Employee DOM</h1>
+        <div class='container'></div>
     </body>
         
+    <script>
+        const employees = [
+    { id: 1, name: 'moe'},
+    { id: 2, name: 'larry'},
+    { id: 4, name: 'shep'},
+    { id: 3, name: 'curly'},
+    { id: 5, name: 'groucho'},
+    { id: 6, name: 'harpo'},
+    { id: 8, name: 'shep Jr.'},
+    { id: 99, name: 'lucy'}
+  ];
+
+  const list = employees.map((employee)=>{
+      return `<div>${employee.name}</div>`
+  }).join('')
+
+
+  const container = document.querySelector('.container')
+  container.innerHTML = list;
+ 
+ const links =  [...document.querySelectorAll('.container > div')];
+ let counter = 0;
+links.forEach(x => {
+    x.addEventListener('click', (ev)=>{
+        ev.target.classList.toggle('yellow');
+        (ev.target.className === 'yellow') ? counter += 1 : counter -= 1;
+        if(counter >3) {
+            alert('you can only s')
+            ev.target.classList.remove('yellow');
+
+        }
+        console.log(counter)
+    }) 
+   
+ 
+})
+
+
+
+    </script> 
 </html>
